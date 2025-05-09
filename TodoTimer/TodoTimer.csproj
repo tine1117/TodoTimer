@@ -1,0 +1,29 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <UseWindowsForms>true</UseWindowsForms>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- 자동 포함된 Form1.cs 에 하위 타입 지정 -->
+    <Compile Update="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+
+    <!-- 자동 포함된 Form1.Designer.cs 를 Form1.cs 아래 종속시키기 -->
+    <Compile Update="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+
+    <!-- 자동 포함된 리소스 파일도 종속시키기 -->
+    <EmbeddedResource Update="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+
+    <!-- 기타 패키지 참조는 그대로 -->
+    <PackageReference Include="Microsoft.VisualBasic" Version="10.3.0" />
+  </ItemGroup>
+</Project>
